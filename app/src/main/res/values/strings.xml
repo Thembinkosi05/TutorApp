@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FinalStudent</string>
+    <string name="StudentName">Student Name</string>
+    <string name="StudentSurname">Student Surname</string>
+    <string name="StudentEmail">Student Email</string>
+    <string name="ConfirmPassword">Confirm Password</string>
+    <string name="StudentPassword">Password</string>
+    <string name="upload_academic_record">Upload Academic Record:</string>
+    <string name="todo">TODO</string>
+    <string name="student">Student</string>
+    <string name="name">Name</string>
+</resources>
