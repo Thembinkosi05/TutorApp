@@ -159,7 +159,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
             cv.put(COLUMN_TUTOR_EMAIL, Email);
             cv.put(COLUMN_TUTOR_PASSWORD, password);
             cv.put(COLUMN_APPROVAL_STATUS, 0);
-            cv.put(COLUMN_TUTOR_ACADEMICS,imageInBytes);
+           // cv.put(COLUMN_TUTOR_ACADEMICS,imageInBytes);
             long result = db.insert(TUTOR_TABLE, null, cv);
             if (result == -1) {
                 Toast.makeText(context, "Failed to Add a new tutor", Toast.LENGTH_SHORT).show();
@@ -193,6 +193,20 @@ public class DatabaseHelper extends SQLiteOpenHelper
         }
     }
 
+    void addModuleTut (int TutorId,int ModuleCode){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TUTOR_ID, TutorId);
+        cv.put(COLUMN_MODULE_ID, ModuleCode);
+        long result = db.insert(MODULE_TUT_TABLE, null, cv);
+        if (result == -1) {
+            Toast.makeText(context, "Failed to Add New Module Tut", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Added ModuleTut Successfully!", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
     public Cursor alreadyExist (String searchString) {
         String query =  "SELECT MODULE_NAME FROM MODULE_TABLE WHERE MODULE_NAME =" +"'" + searchString + "'" ;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -219,6 +233,50 @@ public class DatabaseHelper extends SQLiteOpenHelper
     SQLiteDatabase db = this.getReadableDatabase();
 
     Cursor cursor = null;
+        if(db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    public Cursor logInFunction(String Username,int password){
+        String query = "SELECT STUDENT_NAME,STUDENT_SURNAME,STUDENT_EMAIL FROM STUDENT_TABLE WHERE STUDENT_EMAIL='" + Username +"' AND " + " STUDENT_PASSWORD ="+password;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    public Cursor AllModules(){
+        String query = "SELECT MODULE_NAME FROM MODULE_TABLE";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    public Cursor getTutorId(String email){
+        String query = "SELECT TUTOR_ID FROM TUTOR_TABLE WHERE TUTOR_EMAIL ="+"'"+email+"'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    public Cursor getModuleCode(String ModuleName){
+        String query = "SELECT MODULE_CODE FROM MODULE_TABLE WHERE MODULE_NAME ="+"'"+ModuleName+"'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
         if(db != null) {
             cursor = db.rawQuery(query, null);
         }

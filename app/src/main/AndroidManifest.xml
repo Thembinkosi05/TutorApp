@@ -17,6 +17,12 @@
             android:name=".ModuleActivity"
             android:label="Adding New Module"
             android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".HomeActivity"
+            android:label="Home"
+            android:parentActivityName=".MainActivity" />
+        
         <activity
             android:name=".StudentActivity"
             android:label="Student Registration"

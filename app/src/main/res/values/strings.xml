@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">FinalStudent</string>
     <string name="StudentName">Student Name</string>
     <string name="StudentSurname">Student Surname</string>
@@ -6,7 +6,16 @@
     <string name="ConfirmPassword">Confirm Password</string>
     <string name="StudentPassword">Password</string>
     <string name="upload_academic_record">Upload Academic Record:</string>
-    <string name="todo">TODO</string>
+    <string name="todo1" tools:ignore="DuplicateDefinition">TODO</string>
     <string name="student">Student</string>
     <string name="name">Name</string>
+    <string name="search_module">Search Module</string>
+    <string name="todo2">TODO</string>
+    <string name="maintain_tutor_admin">Maintain Tutor (Admin)</string>
+    <string name="maintain_module_admin">Maintain Module (Admin)</string>
+    <string name="todo3">TODO</string>
+    <string name="todo4">TODO</string>
+    <string name="modules">Modules</string>
+    <string name="todo">TODO</string>
+    <string name="profile">Profile</string>
 </resources>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         userName = findViewById(R.id.userName);
         login_password = findViewById(R.id.login_password);
         btn_login = findViewById(R.id.btn_login);
+        myDb = new DatabaseHelper(this);
 
         btn_add_module = findViewById(R.id.btn_add_module);
         btn_add_module.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +47,28 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ModuleActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseHelper db_Helper = new  DatabaseHelper(MainActivity.this);
+
+                Cursor ex = db_Helper.checkUsernameStudent(userName.getText().toString());
+                if(userName.getText().toString().trim().equals("")||login_password.getText().toString().trim().equals("")){
+                    Toast.makeText(MainActivity.this, "Please fill in username or password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Cursor login_info = db_Helper.logInFunction(userName.getText().toString(),Integer.parseInt(login_password.getText().toString().trim()));
+                if(login_info.getCount()<=0)
+                {
+                    Toast.makeText(MainActivity.this, "invalid password or username", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(intent);
+
             }
         });
 

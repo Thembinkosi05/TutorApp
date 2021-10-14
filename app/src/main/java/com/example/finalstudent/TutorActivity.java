@@ -3,6 +3,8 @@ package com.example.finalstudent;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -65,30 +67,54 @@ public class TutorActivity extends AppCompatActivity {
         });
         btn_tut_register.setOnClickListener(new View.OnClickListener(){
 
+            @SuppressLint("Range")
             @Override
             public void onClick(View view) {
-                DatabaseHelper db_Helper = new  DatabaseHelper(TutorActivity.this);
-                checkValidity();
-                if(tutName.getText().toString().trim().equals("")||tutSurname.getText().toString().trim().equals("")||tutPassword.getText().toString().trim().equals("")||tutConfirmPass.getText().toString().trim().equals("")) {
-                    Toast.makeText(TutorActivity.this, "Please fill in all the entries", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(Integer.parseInt(tutConfirmPass.getText().toString().trim())!=Integer.parseInt(tutPassword.getText().toString().trim()))
-                {
-                    tutConfirmPass.setError("Confirmation Password is not the same as Password");
-                    return;
-                }
-                if(!isEmail(tutEmail))
-                {
-                    tutEmail.setError("Please enter VALID email");
-                    return;
-                }
-                if(objectImageView.getDrawable()!=null && imageToStore!=null) {
-                    db_Helper.addTutor(tutName.getText().toString().trim(),
-                            tutSurname.getText().toString().trim(), tutEmail.getText().toString().trim(),
-                            Integer.parseInt(tutPassword.getText().toString().trim()), imageToStore);
-                }else{
-                    Toast.makeText(TutorActivity.this, "Please upload image", Toast.LENGTH_SHORT).show();
+                try {
+                    DatabaseHelper db_Helper = new DatabaseHelper(TutorActivity.this);
+                    checkValidity();
+                    if (tutName.getText().toString().trim().equals("") || tutSurname.getText().toString().trim().equals("") || tutPassword.getText().toString().trim().equals("") || tutConfirmPass.getText().toString().trim().equals("")) {
+                        Toast.makeText(TutorActivity.this, "Please fill in all the entries", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (Integer.parseInt(tutConfirmPass.getText().toString().trim()) != Integer.parseInt(tutPassword.getText().toString().trim())) {
+                        tutConfirmPass.setError("Confirmation Password is not the same as Password");
+                        return;
+                    }
+                    if (!isEmail(tutEmail)) {
+                        tutEmail.setError("Please enter VALID email");
+                        return;
+                    }
+                    if (objectImageView.getDrawable() != null && imageToStore != null) {
+                        db_Helper.addTutor(tutName.getText().toString().trim(),
+                                tutSurname.getText().toString().trim(), tutEmail.getText().toString().trim(),
+                                Integer.parseInt(tutPassword.getText().toString().trim()), imageToStore);
+                        String module = selectModule.getText().toString().trim();
+                        Cursor ModuleCode = db_Helper.getModuleCode(module);
+                        int Code = 0, ID = 0;
+
+                        if (ModuleCode.moveToFirst()) {
+                            do {
+                                Code = ModuleCode.getInt(ModuleCode.getColumnIndex("MODULE_CODE"));
+                                // do what ever you want here
+                            } while (ModuleCode.moveToNext());
+                        }
+                        ModuleCode.close();
+                        Cursor tutID = db_Helper.getTutorId(tutEmail.getText().toString().trim());
+                        if (tutID.moveToFirst()) {
+                            do {
+                                ID = tutID.getInt(tutID.getColumnIndex("TUTOR_ID"));
+                                // do what ever you want here
+                            } while (tutID.moveToNext());
+                        }
+                        tutID.close();
+                        db_Helper.addModuleTut(ID, Code);
+
+                    } else {
+                        Toast.makeText(TutorActivity.this, "Please upload image", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    Toast.makeText(TutorActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -158,6 +184,8 @@ public class TutorActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     public void chooseImage(View objectView){
@@ -167,7 +195,7 @@ public class TutorActivity extends AppCompatActivity {
             objectIntent.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(objectIntent,123);
         }catch (Exception e){
-            Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText( TutorActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -181,7 +209,7 @@ public class TutorActivity extends AppCompatActivity {
                 objectImageView.setImageBitmap(imageToStore);
             }
         }catch (Exception e){
-            Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(TutorActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
     }
 
