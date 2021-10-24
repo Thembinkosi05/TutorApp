@@ -85,7 +85,7 @@ public class TutorActivity extends AppCompatActivity {
                         tutEmail.setError("Please enter VALID email");
                         return;
                     }
-                    if (objectImageView.getDrawable() != null && imageToStore != null) {
+                    if (objectImageView.getDrawable() != null && imageToStore != null && db_Helper.checkUsername(tutEmail.getText().toString().trim()).getCount() <= 0 ) {
                         db_Helper.addTutor(tutName.getText().toString().trim(),
                                 tutSurname.getText().toString().trim(), tutEmail.getText().toString().trim(),
                                 Integer.parseInt(tutPassword.getText().toString().trim()), imageToStore);
@@ -193,7 +193,7 @@ public class TutorActivity extends AppCompatActivity {
             Intent objectIntent = new Intent();
             objectIntent.setType("image/*");
             objectIntent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(objectIntent,123);
+            startActivityForResult(objectIntent,PICK_IMAGE_REQUEST);
         }catch (Exception e){
             Toast.makeText( TutorActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
@@ -203,7 +203,7 @@ public class TutorActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         try {
             super.onActivityResult(requestCode, resultCode, data);
-            if(requestCode==123 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
+            if(requestCode==PICK_IMAGE_REQUEST && resultCode==RESULT_OK && data!=null && data.getData()!=null){
                 Uri imageFilePath = data.getData();
                 imageToStore = MediaStore.Images.Media.getBitmap(getContentResolver(), imageFilePath);
                 objectImageView.setImageBitmap(imageToStore);

@@ -10,14 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
     DatabaseHelper db ;
-    ImageView maintainModule;
+    ImageView maintainModule,modules,profile,maintainTutor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
         maintainModule = findViewById(R.id.maitain_module);
-        maintainModule.setOnClickListener(new View.OnClickListener() {
+        modules = findViewById(R.id.modules);
+        modules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, AllModulesActivity.class);

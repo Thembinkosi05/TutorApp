@@ -81,12 +81,12 @@ public class DatabaseHelper extends SQLiteOpenHelper
         try {
             sqLiteDatabase.execSQL("PRAGMA foreign_keys=ON");
             String createTableStatement = "CREATE TABLE " + STUDENT_TABLE + " (  " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_STUDENT_NAME + " TEXT, " + COLUMN_STUDENT_SURNAME + " TEXT, " + COLUMN_STUDENT_EMAIL + " TEXT, " + COLUMN_STUDENT_PASSWORD + " INT, " + COLUMN_STUDENT_CONFIRMP + " INT )";
-            String tutorTable = "CREATE TABLE " + TUTOR_TABLE + " (  " + COLUMN_TUTOR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TUTOR_NAME + " TEXT, " + COLUMN_TUTOR_SURNAME + " TEXT, " + COLUMN_TUTOR_EMAIL + " TEXT, " + COLUMN_TUTOR_PASSWORD + " INT, " + COLUMN_APPROVAL_STATUS + " INT DEFAULT 0," + COLUMN_TUTOR_ACADEMICS + "BLOB)";
+            String tutorTable = "CREATE TABLE " + TUTOR_TABLE + " (  " + COLUMN_TUTOR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TUTOR_NAME + " TEXT, " + COLUMN_TUTOR_SURNAME + " TEXT, " + COLUMN_TUTOR_EMAIL + " TEXT, " + COLUMN_TUTOR_PASSWORD + " INT, " + COLUMN_APPROVAL_STATUS + " INT DEFAULT 0," + COLUMN_TUTOR_ACADEMICS + " BLOB)";
             String ModuleTable = "CREATE TABLE " + MODULE_TABLE + " (  " + COLUMN_MODULE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_MODULE_NAME + " TEXT UNIQUE, " + COLUMN_MODULE_DESCRIPTION + " TEXT )";
             String ModuleTutTable = "CREATE TABLE " + MODULE_TUT_TABLE + " (  " + COLUMN_TUT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_TUTOR_ID +" INTEGER, " +  COLUMN_MODULE_ID +" INTEGER, "+" FOREIGN KEY (" + COLUMN_TUTOR_ID + ")" + "REFERENCES " + TUTOR_TABLE + " (" + COLUMN_TUTOR_ID + "),"  + "FOREIGN KEY (" + COLUMN_MODULE_ID + ")" + "REFERENCES " + MODULE_TABLE + " (" + COLUMN_MODULE_ID + "))";
-            String RatingTable = "CREATE TABLE " + RATING_TABLE + " (  " + COLUMN_RATING_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_NUM_STARS + "INTEGER, " + COLUMN_COMMENT + "TEXT, " + COLUMN_ID +" INTEGER, "+ COLUMN_TUTOR_ID +" INTEGER, "+ " FOREIGN KEY (" + COLUMN_TUTOR_ID + ")" + "REFERENCES " + TUTOR_TABLE + " (" + COLUMN_TUTOR_ID + "), " + "FOREIGN KEY (" + COLUMN_ID + ")" + "REFERENCES " + STUDENT_TABLE + " (" + COLUMN_ID + "))";
+            String RatingTable = "CREATE TABLE " + RATING_TABLE + " (  " + COLUMN_RATING_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_NUM_STARS + " INTEGER, " + COLUMN_COMMENT + " TEXT, " + COLUMN_ID +" INTEGER, "+ COLUMN_TUTOR_ID +" INTEGER, "+ " FOREIGN KEY (" + COLUMN_TUTOR_ID + ")" + "REFERENCES " + TUTOR_TABLE + " (" + COLUMN_TUTOR_ID + "), " + "FOREIGN KEY (" + COLUMN_ID + ")" + "REFERENCES " + STUDENT_TABLE + " (" + COLUMN_ID + "))";
             String SessionTable = "CREATE TABLE " + SESSION_TABLE + " (  " + COLUMN_SESSION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_DATE + " TEXT, " + COLUMN_IS_BOOKED + " INT DEFAULT 0," + COLUMN_ID +" INTEGER, "+ COLUMN_TUT_ID +" INTEGER, "+ " FOREIGN KEY (" + COLUMN_ID + ")" + "REFERENCES " + STUDENT_TABLE + " (" + COLUMN_ID + "), " + "FOREIGN KEY (" + COLUMN_TUT_ID + ")" + "REFERENCES " + MODULE_TUT_TABLE + " (" + COLUMN_TUT_ID + "))";
-            String projectTable = "CREATE TABLE " + PROJECT_TABLE + " (  " + COLUMN_PROJECT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_NOTES + " BLOB, "+COLUMN_VIDEOS + "BLOB, " +  COLUMN_TUT_ID +" INTEGER," + " FOREIGN KEY (" + COLUMN_TUT_ID + ")" + "REFERENCES " + MODULE_TUT_TABLE + " (" + COLUMN_TUT_ID + "))";
+            String projectTable = "CREATE TABLE " + PROJECT_TABLE + " (  " + COLUMN_PROJECT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_NOTES + " BLOB, "+COLUMN_VIDEOS + " BLOB, " +  COLUMN_TUT_ID +" INTEGER," + " FOREIGN KEY (" + COLUMN_TUT_ID + ")" + "REFERENCES " + MODULE_TUT_TABLE + " (" + COLUMN_TUT_ID + "))";
             sqLiteDatabase.execSQL(ModuleTable);
             sqLiteDatabase.execSQL(createTableStatement);
             sqLiteDatabase.execSQL(tutorTable);
@@ -159,7 +159,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
             cv.put(COLUMN_TUTOR_EMAIL, Email);
             cv.put(COLUMN_TUTOR_PASSWORD, password);
             cv.put(COLUMN_APPROVAL_STATUS, 0);
-           // cv.put(COLUMN_TUTOR_ACADEMICS,imageInBytes);
+            cv.put(COLUMN_TUTOR_ACADEMICS,imageInBytes);
             long result = db.insert(TUTOR_TABLE, null, cv);
             if (result == -1) {
                 Toast.makeText(context, "Failed to Add a new tutor", Toast.LENGTH_SHORT).show();
