@@ -35,7 +35,7 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return 0;
+        return modules.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
