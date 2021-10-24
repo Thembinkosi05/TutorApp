@@ -251,7 +251,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     }
 
     public Cursor AllModules(){
-        String query = "SELECT MODULE_NAME FROM MODULE_TABLE";
+        String query = "SELECT MODULE_NAME,MODULE_CODE,MODULE_DESCRIPTION FROM MODULE_TABLE";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
