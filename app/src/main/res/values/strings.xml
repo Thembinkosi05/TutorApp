@@ -16,6 +16,9 @@
     <string name="todo3">TODO</string>
     <string name="todo4">TODO</string>
     <string name="modules">Modules</string>
-    <string name="todo">TODO</string>
+    <string name="todo5">TODO</string>
     <string name="profile">Profile</string>
+    <string name="button">Button</string>
+    <string name="todo">TODO</string>
+    <string name="button1">Button</string>
 </resources>

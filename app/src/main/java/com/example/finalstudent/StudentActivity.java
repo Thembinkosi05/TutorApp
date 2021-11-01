@@ -66,7 +66,7 @@ public class StudentActivity extends AppCompatActivity {
                         return;
                     }
 
-                    curS = new StudentModel(-1,std_name.getText().toString(),std_surname.getText().toString(),std_email.getText().toString(),Integer.parseInt( std_password.getText().toString()), Integer.parseInt( std_confirm_password.getText().toString()));
+                    curS = new StudentModel(-1,std_name.getText().toString(),std_surname.getText().toString(),std_email.getText().toString(),Integer.parseInt( std_password.getText().toString()), Integer.parseInt( std_confirm_password.getText().toString()),false);
                     if(curS.getConfirmP() != curS.getPassword())
                     {
                         curS = null;
@@ -80,7 +80,7 @@ public class StudentActivity extends AppCompatActivity {
                 catch (Exception e)
                 {
                     Toast.makeText(StudentActivity.this,"Error creating student",Toast.LENGTH_SHORT).show();
-                    curS = new StudentModel(-1,"error","","",0,0);
+                    curS = new StudentModel(-1,"error","","",0,0,false);
 
                 }
 

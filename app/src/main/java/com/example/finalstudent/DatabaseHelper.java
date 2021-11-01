@@ -193,19 +193,19 @@ public class DatabaseHelper extends SQLiteOpenHelper
         }
     }
 
-    void addModuleTut (int TutorId,int ModuleCode){
+    void addModuleTut (String email,int TutorId,int ModuleCode){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        if((checkUsername(email).getCount() <= 0 || checkUsernameStudent(email).getCount() <= 0))
+        {
         cv.put(COLUMN_TUTOR_ID, TutorId);
-        cv.put(COLUMN_MODULE_ID, ModuleCode);
+        cv.put(COLUMN_MODULE_ID, ModuleCode);}
         long result = db.insert(MODULE_TUT_TABLE, null, cv);
         if (result == -1) {
             Toast.makeText(context, "Failed to Add New Module Tut", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(context, "Added ModuleTut Successfully!", Toast.LENGTH_SHORT).show();
         }
-
-
     }
     public Cursor alreadyExist (String searchString) {
         String query =  "SELECT MODULE_NAME FROM MODULE_TABLE WHERE MODULE_NAME =" +"'" + searchString + "'" ;
@@ -274,6 +274,17 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     public Cursor getModuleCode(String ModuleName){
         String query = "SELECT MODULE_CODE FROM MODULE_TABLE WHERE MODULE_NAME ="+"'"+ModuleName+"'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    public Cursor getAllModuleTut(int moduleCode){
+        String query = "SELECT MODULE_CODE,TUTOR_NAME,TUTOR_SURNAME,TUTOR_EMAIL,TUTOR_PASSWORD,TUTOR_TABLE.TUTOR_ID FROM TUTOR_TABLE INNER JOIN MODULE_TUT ON TUTOR_TABLE.TUTOR_ID = MODULE_TUT.TUTOR_ID  WHERE MODULE_CODE="+moduleCode;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;

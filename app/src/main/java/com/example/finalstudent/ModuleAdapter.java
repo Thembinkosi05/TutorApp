@@ -4,18 +4,30 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.w3c.dom.Node;
 
 public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder> {
 
     private final ArrayList<ModuleModel> modules;
-    public ModuleAdapter(ArrayList<ModuleModel> modules){
+    private final Context context;
+    public static int code = 0;
+
+
+    public ModuleAdapter(ArrayList<ModuleModel> modules,Context context){
         this.modules = modules;
+        this.context = context;
     }
 
     @NonNull
@@ -26,11 +38,21 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
         return new ViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ModuleModel module =modules.get(position);
-
         holder.btnModuleName.setText(module.getName());
+
+
+        holder.btnModuleName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                code = module.getModuleCode();
+                Intent intent = new Intent(context,SelectedTutor.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

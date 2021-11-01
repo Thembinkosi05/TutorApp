@@ -108,7 +108,7 @@ public class TutorActivity extends AppCompatActivity {
                             } while (tutID.moveToNext());
                         }
                         tutID.close();
-                        db_Helper.addModuleTut(ID, Code);
+                        db_Helper.addModuleTut(tutEmail.getText().toString().trim(),ID, Code);
 
                     } else {
                         Toast.makeText(TutorActivity.this, "Please upload image", Toast.LENGTH_SHORT).show();

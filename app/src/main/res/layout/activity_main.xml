@@ -23,15 +23,15 @@
     <EditText
         android:id="@+id/login_password"
         android:layout_width="349dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="27dp"
+        android:drawableRight="@drawable/ic_baseline_visibility_off_24"
         android:ems="10"
         android:hint="Password"
         android:inputType="numberPassword"
-        android:textColorHint="#888888"
-        android:drawableRight="@drawable/ic_baseline_visibility_off_24"
         android:longClickable="false"
+        android:textColorHint="#888888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userName" />
 
@@ -83,7 +83,6 @@
         android:layout_height="118dp"
         android:layout_marginStart="124dp"
         android:layout_marginTop="88dp"
-        android:text="logo picture to be inserted"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,5 +98,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="282dp"
+        android:layout_height="202dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/userName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_dyans__2_" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
