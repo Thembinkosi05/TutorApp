@@ -37,7 +37,7 @@ public class ModuleActivity extends AppCompatActivity {
         btn_cancel_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ModuleActivity.this, MainActivity.class);
+                Intent intent = new Intent(ModuleActivity.this, MaintainModule.class);
                 startActivity(intent);
             }
         });

@@ -34,7 +34,7 @@ public class Rating  extends AppCompatActivity {
         tutName = findViewById(R.id.RatingTutName);
         rate = findViewById(R.id.btn_rate);
 
-        tutorModel = TutorAdapter.curTut;
+        tutorModel = TutorAdapter.T;
         tutName.setText(tutorModel.getName());
         studentModel = MainActivity.curStudent;
 

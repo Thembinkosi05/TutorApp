@@ -42,30 +42,30 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rvMaintainModule"
         android:layout_width="389dp"
-        android:layout_height="493dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_newModule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
         android:layout_marginTop="24dp"
         android:text="@string/new_module"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintStart_toStartOf="@+id/rvMaintainModule"
+        app:layout_constraintTop_toBottomOf="@+id/rvMaintainModule" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_cancel_module"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="11dp"
         android:text="@string/cancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintEnd_toEndOf="@+id/rvMaintainModule"
+        app:layout_constraintTop_toTopOf="@+id/btn_newModule" />
 </androidx.constraintlayout.widget.ConstraintLayout>

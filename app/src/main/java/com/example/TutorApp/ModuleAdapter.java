@@ -36,8 +36,17 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ModuleModel module =modules.get(position);
-
         holder.btnModuleName.setText(module.getName());
+
+        holder.btnModuleName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moduleName =""+module.getName();
+                code = module.getModuleCode();
+                Intent intent = new Intent(context,SelectedTutor.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

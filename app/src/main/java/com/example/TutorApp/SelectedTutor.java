@@ -1,4 +1,4 @@
-package com.example.TutorApp.;
+package com.example.TutorApp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -26,6 +27,7 @@ public class SelectedTutor extends AppCompatActivity {
 
     int modCode;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,15 +39,14 @@ public class SelectedTutor extends AppCompatActivity {
         RecyclerView rvTutors = findViewById(R.id.view_tutor);
         rvTutors.setLayoutManager(new LinearLayoutManager(this));
 
+        TextView selectedModule = findViewById(R.id.text_selectedModule);
 
         DatabaseHelper myDb = new DatabaseHelper(SelectedTutor.this);
         ArrayList<TutorModel> tutors = new ArrayList<>();
         modCode = ModuleAdapter.code;
+        selectedModule.setText("Tutors Available for "+ModuleAdapter.moduleName);
         Cursor cursor = myDb.getAllModuleTut(modCode);
 
-
-
-        Toast.makeText(this,""+modCode,Toast.LENGTH_LONG).show();
         try {
             if (cursor.moveToFirst()) {
                 do {
@@ -56,7 +57,7 @@ public class SelectedTutor extends AppCompatActivity {
                     @SuppressLint("Range") String surname = cursor.getString(cursor.getColumnIndex("TUTOR_SURNAME"));
                     @SuppressLint("Range") String email = cursor.getString(cursor.getColumnIndex("TUTOR_EMAIL"));
                     // do what ever you want here
-                    TutorModel tutor = new TutorModel(tutor_id,name,surname,email,password);
+                    TutorModel tutor = new TutorModel(tutor_id,name,surname,email,password,null);
                     modCode = moduleCode;
                     tutors.add(tutor);
                 } while (cursor.moveToNext());

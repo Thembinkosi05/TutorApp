@@ -3,6 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/admin_approval.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/all_module_activity.xml" value="0.1" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/fragment_login.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/home_activity.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/maintain_module_activity.xml" value="0.22" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/module_activity.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/oneline_all_module_activity.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/oneline_all_tutor.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/oneline_maintain_activity.xml" value="0.22" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/pending_tutor_activity.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/rating_activity.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/select_tutor.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/student_activity.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/tutor_activity.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/tutor_for_specific_module.xml" value="0.12454710144927536" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/tutor_profile.xml" value="0.18" />
+        <entry key="..\:/Users/Themba/AndroidStudioProjects/TutorApp/app/src/main/res/layout/update_module.xml" value="0.33" />
         <entry key="..\:/Users/Themba/Downloads/ProjectApp/ProjectApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Themba/Downloads/ProjectApp/ProjectApp/app/src/main/res/layout/admin_approval.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/Themba/Downloads/ProjectApp/ProjectApp/app/src/main/res/layout/all_module_activity.xml" value="0.12817028985507245" />
@@ -21,5 +39,5 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

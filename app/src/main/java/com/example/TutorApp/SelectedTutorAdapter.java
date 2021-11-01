@@ -1,4 +1,4 @@
-package com.example.TutorApp.;
+package com.example.TutorApp;
 
 import android.view.LayoutInflater;
 import android.view.View;

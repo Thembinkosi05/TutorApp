@@ -1,5 +1,6 @@
 package com.example.TutorApp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -31,7 +32,7 @@ public class TutorAdapter extends RecyclerView.Adapter<TutorAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TutorAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TutorAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         TutorModel tutor = tutors.get(position);
 
 

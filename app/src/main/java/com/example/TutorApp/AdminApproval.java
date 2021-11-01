@@ -32,7 +32,6 @@ public class AdminApproval extends AppCompatActivity {
         TutorModel tutorModel = PendingTutorAdapter.pendingTut;
         approveTut.setText(tutorModel.getName());
         DatabaseHelper myDb = new DatabaseHelper(AdminApproval.this);
-        Toast.makeText(AdminApproval.this,""+tutorModel.getId(),Toast.LENGTH_SHORT).show();
         academicView.setImageBitmap(myDb.returnImageAcademic(tutorModel.getName()));
         btn_approve.setOnClickListener(new View.OnClickListener() {
             @Override

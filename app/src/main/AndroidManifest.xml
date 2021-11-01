@@ -16,7 +16,7 @@
         <activity
             android:name=".ModuleActivity"
             android:label="Adding New Module"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MaintainModule" />
 
         <activity
             android:name=".HomeActivity"
@@ -31,7 +31,9 @@
             android:name=".TutorActivity"
             android:label="Tutor Registration"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
+            android:label="Log in"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,8 +43,34 @@
         </activity>
         <activity
             android:name=".AllModulesActivity"
+            android:label="All modules"
             android:parentActivityName=".HomeActivity"
             />
+        <activity android:name=".SelectedTutor"
+            android:label="Selected Tutor"
+            android:parentActivityName=".AllModulesActivity"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".PendingTutors"
+            android:label="Pending Approval"
+            android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".AdminApproval"
+            android:label="Approval"
+            android:parentActivityName=".PendingTutors"/>
+        <activity android:name=".Rating"
+            android:label="Rating"/>
+        <activity android:name=".SelectedTutorCreate"
+            android:label="Profile"
+            android:parentActivityName=".SelectedTutor"/>
+        <activity android:name=".TutorProfile"
+            android:label="Profile"
+            android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".MaintainModule"
+            android:label="Maintain Module"
+            android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".UpdateModule"
+            android:label="Update Module"
+            android:parentActivityName=".MaintainModule"/>
+
     </application>
 
 </manifest>

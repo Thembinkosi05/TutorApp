@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         login_password = findViewById(R.id.login_password);
         btn_login = findViewById(R.id.btn_login);
         myDb = new DatabaseHelper(this);
+        myDb.addAdmin();
         btn_add_module = findViewById(R.id.btn_add_module);
         btn_add_module.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,13 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 CurrentEmailLoggedIn = userName.getText().toString();
                 if(CurrentEmailLoggedIn.equals("admin@gmail.com"))
                 {
-                    Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Logged in as admin",Toast.LENGTH_SHORT).show();
                 }
                else if (db_Helper.checkUsernameStudent(CurrentEmailLoggedIn).getCount()>0)
                     curStudent = db_Helper.returnStudent(CurrentEmailLoggedIn);
                 else
                     curTutor = db_Helper.returnTutor(CurrentEmailLoggedIn);
-                Toast.makeText(MainActivity.this,""+CurrentEmailLoggedIn,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
 

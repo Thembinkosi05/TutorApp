@@ -1,4 +1,4 @@
-package com.example.TutorApp.;
+package com.example.TutorApp;
 
 import android.annotation.SuppressLint;
 import android.database.Cursor;
