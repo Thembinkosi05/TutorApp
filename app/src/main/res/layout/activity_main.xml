@@ -14,38 +14,35 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="@string/username"
+        android:hint="Username"
         android:inputType="textEmailAddress"
         android:textColorHint="#888888"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
         android:id="@+id/login_password"
         android:layout_width="349dp"
-        android:layout_height="48dp"
+        android:layout_height="47dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="27dp"
-        android:drawableEnd="@drawable/ic_baseline_visibility_off_24"
         android:ems="10"
-        android:hint="@string/password"
-        android:importantForAutofill="no"
+        android:hint="Password"
         android:inputType="numberPassword"
-        android:longClickable="false"
         android:textColorHint="#888888"
+        android:drawableRight="@drawable/ic_baseline_visibility_off_24"
+        android:longClickable="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userName"
-        tools:ignore="TextContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="361dp"
-        android:layout_height="80dp"
+        android:layout_width="350dp"
+        android:layout_height="63dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/login"
+        android:text="Login"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="30dp"
@@ -56,15 +53,17 @@
 
     <Button
         android:id="@+id/btn_register_login"
-        android:layout_width="349dp"
-        android:layout_height="81dp"
+        android:layout_width="350dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="@string/register"
+        android:layout_marginEnd="32dp"
+        android:text="Register"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_login"
-        app:layout_constraintStart_toStartOf="@+id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <TextView
@@ -72,7 +71,7 @@
         android:layout_width="130dp"
         android:layout_height="29dp"
         android:layout_marginEnd="33dp"
-        android:text="@string/forgot_password"
+        android:text="Forgot Password?"
         android:textColor="#888888"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +83,7 @@
         android:layout_height="118dp"
         android:layout_marginStart="124dp"
         android:layout_marginTop="88dp"
-        android:text="@string/logo_picture_to_be_inserted"
+        android:text="logo picture to be inserted"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,8 +98,6 @@
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

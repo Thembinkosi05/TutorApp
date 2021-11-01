@@ -10,17 +10,16 @@ public class StudentModel
     private String Email;
     private int password;
     private int ConfirmP;
+    private boolean booked;
 
-    public StudentModel() {
-    }
-
-    public StudentModel(int id ,String name, String surname, String email, int password, int ConfirmP) {
+    public StudentModel(int id, String name, String surname, String email, int password, int confirmP, boolean booked) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         Email = email;
         this.password = password;
-        this.ConfirmP = ConfirmP;
-        this.id = id;
+        ConfirmP = confirmP;
+        this.booked = booked;
     }
 
     public int getId() {
@@ -29,14 +28,6 @@ public class StudentModel
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getConfirmP() {
-        return ConfirmP;
-    }
-
-    public void setConfirmP(int confirmP) {
-        ConfirmP = confirmP;
     }
 
     public String getName() {
@@ -71,6 +62,22 @@ public class StudentModel
         this.password = password;
     }
 
+    public int getConfirmP() {
+        return ConfirmP;
+    }
+
+    public void setConfirmP(int confirmP) {
+        ConfirmP = confirmP;
+    }
+
+    public boolean isBooked() {
+        return booked;
+    }
+
+    public void setBooked(boolean booked) {
+        this.booked = booked;
+    }
+
     @Override
     public String toString() {
         return "StudentModel{" +
@@ -80,6 +87,7 @@ public class StudentModel
                 ", Email='" + Email + '\'' +
                 ", password=" + password +
                 ", ConfirmP=" + ConfirmP +
+                ", booked=" + booked +
                 '}';
     }
 }
