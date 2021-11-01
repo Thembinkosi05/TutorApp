@@ -10,14 +10,14 @@
         android:id="@+id/switch_to_student"
         android:layout_width="113dp"
         android:layout_height="51dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="15dp"
         android:checked="true"
         android:fadeScrollbars="false"
         android:text="@string/student"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tutName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -25,11 +25,10 @@
         android:layout_width="107dp"
         android:layout_height="31dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="24dp"
-        android:text="Register As:"
+        android:layout_marginTop="14dp"
+        android:text="@string/register_as"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,66 +36,58 @@
         android:id="@+id/btn_tut_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="17dp"
-        android:text="Register"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/register"
+        app:layout_constraintStart_toStartOf="@+id/selectModule"
         app:layout_constraintTop_toBottomOf="@+id/selectModule" />
 
     <EditText
         android:id="@+id/tutEmail"
         android:layout_width="380dp"
         android:layout_height="49dp"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textColorHint="#888888"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tutConfirmPass" />
+        app:layout_constraintStart_toStartOf="@+id/tutConfirmPass"
+        app:layout_constraintTop_toBottomOf="@+id/tutConfirmPass"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/tutPassword"
         android:layout_width="378dp"
         android:layout_height="48dp"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="29dp"
         android:ems="10"
-        android:hint="Password (numeric)"
+        android:hint="@string/password_numeric"
+        android:importantForAutofill="no"
         android:inputType="numberPassword"
-        android:password="true"
         android:textColorHint="#888888"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tutSurname" />
+        app:layout_constraintStart_toStartOf="@+id/tutSurname"
+        app:layout_constraintTop_toBottomOf="@+id/tutSurname"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/tutConfirmPass"
         android:layout_width="380dp"
         android:layout_height="48dp"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="29dp"
         android:ems="10"
-        android:hint="Confirm Password"
+        android:hint="@string/confirm_password"
+        android:importantForAutofill="no"
         android:inputType="numberPassword"
-        android:password="true"
         android:textColorHint="#888888"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tutPassword" />
+        app:layout_constraintStart_toStartOf="@+id/tutPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tutPassword"
+        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
     <EditText
         android:id="@+id/tutName"
         android:layout_width="374dp"
         android:layout_height="48dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="29dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
@@ -104,85 +95,81 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/tutSurname"
         android:layout_width="375dp"
         android:layout_height="49dp"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="29dp"
         android:ems="10"
-        android:hint="Surname"
+        android:hint="@string/surname"
         android:inputType="textPersonName"
         android:textColorHint="#888888"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tutName" />
+        app:layout_constraintStart_toStartOf="@+id/tutName"
+        app:layout_constraintTop_toBottomOf="@+id/tutName"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/btnCancelTutor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="28dp"
-        android:text="cancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectModule" />
+        android:layout_marginStart="132dp"
+        android:text="@string/cancel"
+        app:layout_constraintStart_toEndOf="@+id/btn_tut_register"
+        app:layout_constraintTop_toTopOf="@+id/btn_tut_register" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="131dp"
         android:layout_height="48dp"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="37dp"
-        android:editable="false"
         android:ems="10"
         android:focusable="false"
         android:inputType="textPersonName"
-        android:text="Tutor"
+        android:text="@string/tutor"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tutName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="138dp"
         android:layout_height="45dp"
-        android:layout_marginStart="7dp"
         android:layout_marginTop="14dp"
         android:text="@string/upload_academic_record"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tutEmail"
         app:layout_constraintTop_toBottomOf="@+id/tutEmail" />
 
     <ImageView
         android:id="@+id/ImageUpload"
         android:layout_width="214dp"
         android:layout_height="48dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="27dp"
         android:contentDescription="@string/todo"
         android:onClick="chooseImage"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/tutEmail"
-        app:srcCompat="@android:drawable/ic_menu_upload" />
+        app:srcCompat="@android:drawable/ic_menu_upload"
+        tools:ignore="ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck,ImageContrastCheck" />
 
     <EditText
         android:id="@+id/selectModule"
         android:layout_width="375dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="4dp"
+        android:layout_height="48dp"
         android:layout_marginTop="17dp"
         android:ems="10"
-        android:hint="Select Module"
+        android:hint="@string/select_module"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textColorHint="#888888"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ImageUpload" />
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/ImageUpload"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

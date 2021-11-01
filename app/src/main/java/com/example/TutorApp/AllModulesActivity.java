@@ -1,4 +1,4 @@
-package com.example.finalstudent;
+package com.example.TutorApp;
 
 import android.annotation.SuppressLint;
 import android.database.Cursor;
@@ -43,7 +43,7 @@ public class AllModulesActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        ModuleAdapter adapter = new ModuleAdapter(modules);
+        ModuleAdapter adapter = new ModuleAdapter(modules,this);
         rvModules.setAdapter(adapter);
     }
 }

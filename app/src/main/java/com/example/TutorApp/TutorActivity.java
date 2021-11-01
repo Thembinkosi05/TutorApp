@@ -1,10 +1,9 @@
-package com.example.finalstudent;
+package com.example.TutorApp;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,7 +22,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class TutorActivity extends AppCompatActivity {
@@ -108,11 +106,12 @@ public class TutorActivity extends AppCompatActivity {
                             } while (tutID.moveToNext());
                         }
                         tutID.close();
-                        db_Helper.addModuleTut(ID, Code);
+                        db_Helper.addModuleTut(tutEmail.getText().toString().trim(),ID, Code);
 
                     } else {
                         Toast.makeText(TutorActivity.this, "Please upload image", Toast.LENGTH_SHORT).show();
                     }
+
                 }catch (Exception e){
                     Toast.makeText(TutorActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
                 }

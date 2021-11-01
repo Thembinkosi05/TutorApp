@@ -1,4 +1,4 @@
-package com.example.finalstudent;
+package com.example.TutorApp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -74,7 +74,9 @@ public class StudentActivity extends AppCompatActivity {
                     Toast.makeText(StudentActivity.this, curS.toString(),Toast.LENGTH_SHORT).show();
                     DatabaseHelper db_Helper = new  DatabaseHelper(StudentActivity.this);
                     boolean success = db_Helper.addOne(curS);
-                    Toast.makeText(StudentActivity.this, "Success" + success, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StudentActivity.this, "Registration Success", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(StudentActivity.this,HomeActivity.class);
+                    startActivity(intent);
 
                 }
                 catch (Exception e)

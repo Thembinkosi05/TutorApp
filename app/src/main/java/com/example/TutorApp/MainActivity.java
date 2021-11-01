@@ -1,6 +1,4 @@
-package com.example.finalstudent;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.TutorApp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,15 +10,18 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDb;
-
+    static public String CurrentEmailLoggedIn = "";
+    static public StudentModel curStudent = null;
+    static public TutorModel curTutor = null;
     //pixel 4 API 29
 
     Button btn_reg_login, btn_login;
@@ -40,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         login_password = findViewById(R.id.login_password);
         btn_login = findViewById(R.id.btn_login);
         myDb = new DatabaseHelper(this);
-
         btn_add_module = findViewById(R.id.btn_add_module);
         btn_add_module.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DatabaseHelper db_Helper = new  DatabaseHelper(MainActivity.this);
-
-                Cursor ex = db_Helper.checkUsernameStudent(userName.getText().toString());
+                db_Helper.addAdmin();
                 if(userName.getText().toString().trim().equals("")||login_password.getText().toString().trim().equals("")){
                     Toast.makeText(MainActivity.this, "Please fill in username or password", Toast.LENGTH_SHORT).show();
                     return;
@@ -66,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "invalid password or username", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                CurrentEmailLoggedIn = userName.getText().toString();
+                if(CurrentEmailLoggedIn.equals("admin@gmail.com"))
+                {
+                    Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
+                }
+               else if (db_Helper.checkUsernameStudent(CurrentEmailLoggedIn).getCount()>0)
+                    curStudent = db_Helper.returnStudent(CurrentEmailLoggedIn);
+                else
+                    curTutor = db_Helper.returnTutor(CurrentEmailLoggedIn);
+                Toast.makeText(MainActivity.this,""+CurrentEmailLoggedIn,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
 
@@ -105,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, StudentActivity.class);
                 startActivity(intent);
-
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.example.finalstudent;
+package com.example.TutorApp;
 
 public class StudentModel
 {

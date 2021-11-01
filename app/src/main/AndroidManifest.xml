@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.finalstudent">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.TutorApp">
     
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
     <application
         android:allowBackup="true"
@@ -31,7 +33,8 @@
             android:name=".TutorActivity"
             android:label="Tutor Registration"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,6 +45,14 @@
             android:name=".AllModulesActivity"
             android:parentActivityName=".HomeActivity"
             />
+        <activity android:name=".SelectedTutor"
+            android:parentActivityName=".AllModulesActivity"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".PendingTutors"
+            android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".AdminApproval"
+            android:parentActivityName=".PendingTutors"/>
+        <activity android:name=".Rating" />
     </application>
 
 </manifest>

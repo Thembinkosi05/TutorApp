@@ -6,37 +6,40 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView14"
-        android:layout_width="119dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="27dp"
-        android:text="View Modules Available"
+        android:id="@+id/textView15"
+        android:layout_width="183dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/tutors_with_pending_approval"
         android:textAlignment="center"
-        android:textSize="16sp"
+        android:textColor="#0C0C0C"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/view_modules"
-        android:layout_width="388dp"
-        android:layout_height="520dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider4" />
-
     <View
-        android:id="@+id/divider4"
+        android:id="@+id/divider7"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="1dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_pendingTutor"
+        android:layout_width="401dp"
+        android:layout_height="615dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider7" />
 </androidx.constraintlayout.widget.ConstraintLayout>

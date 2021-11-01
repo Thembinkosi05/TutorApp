@@ -8,7 +8,6 @@
     <string name="upload_academic_record">Upload Academic Record:</string>
     <string name="todo1" tools:ignore="DuplicateDefinition">TODO</string>
     <string name="student">Student</string>
-    <string name="name">Name</string>
     <string name="search_module">Search Module</string>
     <string name="todo2">TODO</string>
     <string name="maintain_tutor_admin">Maintain Tutor (Admin)</string>
@@ -16,6 +15,34 @@
     <string name="todo3">TODO</string>
     <string name="todo4">TODO</string>
     <string name="modules">Modules</string>
-    <string name="todo">TODO</string>
+    <string name="todo5">TODO</string>
     <string name="profile">Profile</string>
+    <string name="button">Button</string>
+    <string name="button1">Button</string>
+    <string name="approve">Approve</string>
+    <string name="decline">Decline</string>
+    <string name="todo">TODO</string>
+    <string name="logo_picture_to_be_inserted">logo picture to be inserted</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="surname">Surname</string>
+    <string name="password_numeric">Password (numeric)</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="name">Name</string>
+    <string name="register_as">Register As</string>
+    <string name="tutor">Tutor</string>
+    <string name="select_module">Select Module</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="textview">TextView</string>
+    <string name="update">Update</string>
+    <string name="enter_module_description">Enter Module Description:</string>
+    <string name="tutors_with_pending_approval">Tutors with Pending Approval</string>
+    <string name="maintain_module2">Maintain Module</string>
+    <string name="new_module">New Module</string>
+    <string name="OK">OK</string>
 </resources>
